@@ -1,33 +1,59 @@
 const button = document.querySelector(".button");
-const newNotification = document.querySelectorAll(".notification__mark");
+const notificationDescription = document.querySelectorAll(
+  ".activity-description"
+);
+let count = document.querySelectorAll(".notification__mark").length;
+
+let notificationCount = document.querySelector(".notification-count");
+notificationCount.textContent = count;
+
 button.addEventListener("click", () => {
-  newNotification.forEach((notification) => {
-    if (notification.style.display === "none") return;
-    notification.style.display = "none";
-    notification.parentElement.parentElement.parentElement.style.backgroundColor =
-      "unset";
+  if (Number(notificationCount.textContent) === 0) return;
+  notificationDescription.forEach((notification) => {
+    const newNotification = notification.querySelector(".notification__mark");
+    const notificationContainer = notification.parentElement.parentElement;
+    if (!notification.contains(newNotification)) return;
+    notificationContainer.style.backgroundColor = "unset";
+    notification.removeChild(newNotification);
   });
+  notificationCount.textContent = 0;
 });
 
 notifications.addEventListener("click", (event) => {
-  const target = event.target;
-  const notificationIcon = target.querySelector(".notification__mark");
+  if (Number(notificationCount.textContent) > 0) {
+    const target = event.target;
+    if (target.matches("article")) {
+      const newNotification = target.querySelector(".notification__mark");
 
-  if (target.matches("article")) {
-    if (
-      target.style.backgroundColor === "unset" ||
-      notificationIcon.style.display === "none"
-    ) {
-      return;
+      const activityDescription = target.childNodes[3].querySelector(
+        ".activity-description"
+      );
+
+      if (target.contains(newNotification)) {
+        const lastIndex = activityDescription.children.length - 1;
+        const notificationContainer =
+          activityDescription.parentElement.parentElement;
+        activityDescription.removeChild(
+          activityDescription.children[lastIndex]
+        );
+        notificationContainer.style.backgroundColor = "unset";
+      } else {
+        return;
+      }
     }
-    target.style.backgroundColor = "unset";
-    notificationIcon.style.display = "none";
-  }
+    if (target.matches("span")) {
+      const activityDescription = target.parentElement;
 
-  if (target.matches("span")) {
-    target.parentElement.parentElement.parentElement.style.backgroundColor =
-      "unset";
-    target.parentElement.querySelector(".notification__mark").style.display =
-      "none";
+      const newNotification = activityDescription.querySelector(
+        ".notification__mark"
+      );
+
+      if (activityDescription.contains(newNotification)) {
+        activityDescription.removeChild(newNotification);
+        activityDescription.parentElement.parentElement.style.backgroundColor =
+          "unset";
+      }
+    }
+    notificationCount.textContent = --count;
   }
 });
