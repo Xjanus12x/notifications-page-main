@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Notifications page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+  <link rel="stylesheet" href="./CSS/resets.css">
+  <link rel="stylesheet" href="./CSS/variables.css">
+  <link rel="stylesheet" href="./CSS/typography.css">
+  <link rel="stylesheet" href="./CSS/styles.css">
+  <script src="./JS/main.js" defer></script>
+</head>
+
+<body>
+  <main>
+    <section class="wrapper d-grid ">
+      <header class="notifications-heading row" id="notifications-heading">
+        <h2>Notifications <span class="styled-number">3</span></h2>
+        <button class="button push-right" aria-controls="notifications" type="button">Mark all as read</button>
+      </header>
+
+      <section class="notifications d-grid" id="notifications" role="region" aria-labelledby="notifications-heading">
+
+        <article id="new-notification" class="notification row align-center">
+          <img class="user-avatar" src="./assets/images/avatar-mark-webber.webp" alt="user photo">
+          <div class="notification__description">
+            <h4 class="activity-description row">
+              <span class="notification__user-name">Mark Webber</span>
+              <span class="notification__user-activity">reacted to your recent post</span>
+              <span class="notification__caption">My first tournament today!</span>
+              <span class="notification__mark" aria-hidden="true"></span>
+            </h4>
+            <p class="notification__time">1m ago</p>
+          </div>
+        </article>
+
+        <article id="new-notification" class="notification row align-center">
+          <img class="user-avatar" src="./assets/images/avatar-angela-gray.webp" alt="user photo">
+          <div class="notification__description">
+            <h4 class="activity-description row">
+              <span class="notification__user-name">Angela Gray</span>
+              <span class="notification__user-activity"> followed you</span>
+              <span class="notification__mark" aria-hidden="true"></span>
+            </h4>
+            <p class="notification__time">5m ago</p>
+          </div>
+        </article>
+
+        <article id="new-notification" class="notification row align-center">
+          <img class="user-avatar" src="./assets/images/avatar-jacob-thompson.webp" alt="user photo">
+          <div class="notification__description">
+            <h4 class="activity-description row">
+              <span class="notification__user-name">Jacob Thompson</span>
+              <span class="notification__user-activity">Has joined your group</span>
+              <span class="notification__user-group-name">Chess Club</span>
+              <span class="notification__mark" aria-hidden="true"></span>
+            </h4>
+            <p class="notification__time">1 day ago</p>
+          </div>
+        </article>
+
+        <article class="notification row align-center">
+          <img class="user-avatar" src="./assets/images/avatar-rizky-hasanuddin.webp" alt="user photo">
+          <div class="notification__description d-grid">
+            <h4 class="activity-description row">
+              <span class="notification__user-name">Rizky Hasanuddin</span>
+              <span class="notification__user-activity">sent you a private message</span>
+            </h4>
+            <p class="notification__time">5 days ago</p>
+            <p class="notification__user-msg">Hello, thanks for setting up the Chess Club. I've been a member for a few
+              weeks now and I'm already having lots of fun and improving my game.</p>
+          </div>
+        </article>
+
+        <article class="notification row align-center">
+          <img class="user-avatar" src="./assets/images/avatar-kimberly-smith.webp" alt="user photo">
+
+          <div class="notification__description  ">
+            <h4>
+              <span class="notification__user-name">Kimberly Smith</span>
+              <span class="notification__user-activity">Commented on your picture</span>
+            </h4>
+            <p class="notification__time">1 week ago</p>
+          </div>
+          <img class="user-avatar push-right" src="./assets/images/image-chess.webp" alt="A girl playing chess">
+        </article>
+
+        <article class="notification row align-center">
+          <img class="user-avatar" src="./assets/images/avatar-nathan-peterson.webp" alt="user photo">
+
+          <div class="notification__description">
+            <h4>
+              <span class="notification__user-name">Nathan Peterson</span>
+              <span class="notification__user-activity">reacted to your recent post</span>
+              <span class="notification__caption">5 end-game strategies to increase your win rate</span>
+            </h4>
+            <p class="notification__time">2 weeks ago</p>
+          </div>
+        </article>
+
+        <article class="notification row align-center">
+          <img class="user-avatar" src="./assets/images/avatar-anna-kim.webp" alt="user photo">
+
+          <div class="notification__description">
+            <h4>
+              <span class="notification__user-name">Anna Kim</span>
+              <span class="notification__user-activity">left the group </span>
+              <span class="notification__user-group-name">Chess Club</span>
+            </h4>
+            <p class="notification__time">2 weeks ago</p>
+          </div>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="https://github.com/Xjanus12x">Xjanus12x</a>.
+    </div>
+  </footer>
+</body>
+
+</html>

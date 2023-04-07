@@ -1,0 +1,27 @@
+:root {
+  /* Break points */
+  --bp-mobile: 375px;
+  --bp-desktop: 1440px;
+
+  /*Primary Colors */
+  --red-600: hsl(1, 90%, 64%);
+  --blue-300: hsl(219, 85%, 26%);
+
+  /* Neutral Colros */
+  --white-100: hsl(0, 0%, 100%);
+  --gray-blue-100: hsl(210, 60%, 98%);
+  --gray-blue-200_1: hsl(211, 68%, 94%);
+  --gray-blue-200_2: hsl(205, 33%, 90%);
+  --gray-blue-600: hsl(219, 14%, 63%);
+  --gray-blue-400: hsl(219, 12%, 42%);
+  --dark-blue-100: hsl(224, 21%, 14%);
+
+  /* Font size */
+  --primary-fs: 1rem;
+
+  /* Size */
+  --default-size: 1rem;
+  /* Font weights */
+  --fw1: 500;
+  --fw2: 800;
+}
