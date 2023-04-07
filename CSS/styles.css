@@ -36,6 +36,17 @@
   width: 0.5rem;
   border-radius: 50%;
 }
+.bg-new-notification {
+  background-color: var(--gray-blue-100);
+}
+
+.new-notification {
+  content: "";
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+}
+
 .button {
   background-color: transparent;
   border: 0;
@@ -93,8 +104,8 @@ body {
 .notification {
   padding: var(--default-size);
   gap: var(--default-size);
-
   border-radius: 0.5rem;
+  position: relative;
 }
 .notification__user-name {
   color: var(--dark-blue-100);
@@ -125,33 +136,10 @@ body {
   gap: 0.5rem;
   flex-wrap: wrap;
 }
-.notification:nth-of-type(-n + 3) {
-  background-color: var(--gray-blue-100);
-  border-radius: calc(var(--default-size) / 3);
-}
+
 .notification:nth-of-type(4) .notification__description {
   gap: 0.3rem;
 }
 .notification .notification__description {
   align-self: flex-start;
-}
-
-.notification__user-name:hover,
-.notification__caption:hover {
-  color: var(--blue-300);
-  cursor: pointer;
-}
-.user-avatar:hover {
-  cursor: pointer;
-}
-
-.notification__user-name:hover,
-.notification__user-group-name:hover,
-.notification__caption:hover {
-  cursor: pointer;
-  font-weight: var(--fw2);
-}
-.notification__user-msg:hover {
-  cursor: pointer;
-  background-color: var(--gray-blue-200_1);
 }

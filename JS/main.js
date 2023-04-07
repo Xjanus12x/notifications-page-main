@@ -15,6 +15,8 @@ button.addEventListener("click", () => {
     if (!notification.contains(newNotification)) return;
     notificationContainer.style.backgroundColor = "unset";
     notification.removeChild(newNotification);
+    notificationContainer.children[2].classList.remove("new-notification");
+    notificationContainer.removeChild(notificationContainer.children[2]);
   });
   notificationCount.textContent = 0;
 });
@@ -22,38 +24,20 @@ button.addEventListener("click", () => {
 notifications.addEventListener("click", (event) => {
   if (Number(notificationCount.textContent) > 0) {
     const target = event.target;
-    if (target.matches("article")) {
-      const newNotification = target.querySelector(".notification__mark");
-
-      const activityDescription = target.childNodes[3].querySelector(
+    if (target.matches("div")) {
+      const notificationContainer = target.parentElement;
+      const notificationIcon = notificationContainer.querySelector(
+        ".notification__mark"
+      );
+      const description = notificationContainer.querySelector(
         ".activity-description"
       );
 
-      if (target.contains(newNotification)) {
-        const lastIndex = activityDescription.children.length - 1;
-        const notificationContainer =
-          activityDescription.parentElement.parentElement;
-        activityDescription.removeChild(
-          activityDescription.children[lastIndex]
-        );
-        notificationContainer.style.backgroundColor = "unset";
-      } else {
-        return;
-      }
+      if (!notificationContainer.contains(notificationIcon)) return;
+      notificationContainer.classList.remove("bg-new-notification");
+      description.removeChild(notificationIcon);
+      notificationContainer.removeChild(target);
+      notificationCount.textContent = --count;
     }
-    if (target.matches("span")) {
-      const activityDescription = target.parentElement;
-
-      const newNotification = activityDescription.querySelector(
-        ".notification__mark"
-      );
-
-      if (activityDescription.contains(newNotification)) {
-        activityDescription.removeChild(newNotification);
-        activityDescription.parentElement.parentElement.style.backgroundColor =
-          "unset";
-      }
-    }
-    notificationCount.textContent = --count;
   }
 });
